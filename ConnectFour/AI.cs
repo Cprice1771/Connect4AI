@@ -61,6 +61,10 @@ namespace ConnectFour
                     if (rootSpace.BoardList[i].BoardFitness != null)
                     {
                         rootSpace.BoardList[i].BoardFitness = GetMin(rootSpace.BoardList[i], playerColor, winCount);
+
+                        if (rootSpace.BoardList[i].BoardFitness > 999900)
+                            return rootSpace.BoardList[i].BoardFitness;
+
                         if (max == null || max < rootSpace.BoardList[i].BoardFitness)
                             max = rootSpace.BoardList[i].BoardFitness;
                     }
@@ -86,6 +90,10 @@ namespace ConnectFour
                     if (rootSpace.BoardList[i].BoardFitness != null)
                     {
                         rootSpace.BoardList[i].BoardFitness = GetMax(rootSpace.BoardList[i], playerColor, winCount);
+
+                        if (rootSpace.BoardList[i].BoardFitness < -999900)
+                            return rootSpace.BoardList[i].BoardFitness;
+
                         if (min == null || min > rootSpace.BoardList[i].BoardFitness)
                             min = rootSpace.BoardList[i].BoardFitness;
                     }
@@ -300,7 +308,7 @@ namespace ConnectFour
             }
 
             //Check Diagonally going up
-            if (row - winCount >= 0 && col <= board[0].Count - winCount - winCount && !win)
+            if (row - winCount >= 0 && col <= board[0].Count - winCount && !win)
             {
                 int rowCount = 1;
                 bool blocked = false;
