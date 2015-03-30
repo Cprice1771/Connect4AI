@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectFour", "ConnectFour\ConnectFour.csproj", "{B4448779-C60B-4692-BA22-F8395CEFCCA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectRConsole", "ConnectRConsole\ConnectRConsole.csproj", "{F2F17594-3B25-4AC2-BE44-8BC53C433718}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B4448779-C60B-4692-BA22-F8395CEFCCA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4448779-C60B-4692-BA22-F8395CEFCCA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4448779-C60B-4692-BA22-F8395CEFCCA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2F17594-3B25-4AC2-BE44-8BC53C433718}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2F17594-3B25-4AC2-BE44-8BC53C433718}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2F17594-3B25-4AC2-BE44-8BC53C433718}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2F17594-3B25-4AC2-BE44-8BC53C433718}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

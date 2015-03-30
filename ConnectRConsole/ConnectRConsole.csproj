@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>03c760f4-70a1-4cdc-9f09-ce5b9c9310bb</ProjectGuid>
+    <ProjectGuid>{F2F17594-3B25-4AC2-BE44-8BC53C433718}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ConnectRConsole</RootNamespace>
@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SquareSimple.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
