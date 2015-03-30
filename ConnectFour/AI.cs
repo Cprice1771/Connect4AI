@@ -62,7 +62,7 @@ namespace ConnectFour
                     {
                         rootSpace.BoardList[i].BoardFitness = GetMin(rootSpace.BoardList[i], playerColor, winCount);
 
-                        if (rootSpace.BoardList[i].BoardFitness > 999900)
+                        if (rootSpace.BoardList[i].BoardFitness > 990000)
                             return rootSpace.BoardList[i].BoardFitness;
 
                         if (max == null || max < rootSpace.BoardList[i].BoardFitness)
@@ -91,7 +91,7 @@ namespace ConnectFour
                     {
                         rootSpace.BoardList[i].BoardFitness = GetMax(rootSpace.BoardList[i], playerColor, winCount);
 
-                        if (rootSpace.BoardList[i].BoardFitness < -999900)
+                        if (rootSpace.BoardList[i].BoardFitness < -990000)
                             return rootSpace.BoardList[i].BoardFitness;
 
                         if (min == null || min > rootSpace.BoardList[i].BoardFitness)
