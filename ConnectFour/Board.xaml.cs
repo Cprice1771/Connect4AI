@@ -44,14 +44,15 @@ namespace ConnectFour
         private int _rows;
         private int _columns;
         private AI _ai;
+        private int aiPlaysLookAhead;
 
-        public Board() : this(6, 7, Turn.Red, 4)
+        public Board() : this(6, 7, Turn.Red, 4, 1)
         {
         }
 
 
 
-        public Board(int rows, int columns, Turn turn, int winCount)
+        public Board(int rows, int columns, Turn turn, int winCount, int aiLookAhead)
         {
             InitializeComponent();
 
@@ -63,6 +64,8 @@ namespace ConnectFour
             _rows = rows;
             _columns = columns;
             _board =  new List<List<Square>>();
+            aiPlaysLookAhead = aiLookAhead;
+
 
             int x = 0;
             int y = 0;
@@ -90,7 +93,7 @@ namespace ConnectFour
 
 
             if(turn == Turn.Black)
-                MakePlay(AI.BestMove(GetSimpleBoard(_board), _turn, 2, _winCount));
+                MakePlay(AI.BestMove(GetSimpleBoard(_board), _turn, aiPlaysLookAhead, _winCount));
 
             grid.UpdateLayout();
         }
@@ -136,7 +139,7 @@ namespace ConnectFour
 
             Stopwatch s = new Stopwatch();
             s.Start();
-            MakePlay(AI.BestMove(GetSimpleBoard(_board), _turn, 1, _winCount));
+            MakePlay(AI.BestMove(GetSimpleBoard(_board), _turn, aiPlaysLookAhead, _winCount));
             s.Stop();
 
             Console.WriteLine("Total AI time: " + ((double)s.ElapsedTicks / Stopwatch.Frequency) * 1000.0 + " ms");
@@ -293,7 +296,7 @@ namespace ConnectFour
             }
 
             //Check Diagonally going up
-            if (row > _winCount && col <= _board[0].Count - _winCount && winner == false)
+            if (row - _winCount >= 0 && col <= _board[0].Count - _winCount && winner == false)
             {
                 winner = true;
                 for (int i = 1; i < _winCount; i++)

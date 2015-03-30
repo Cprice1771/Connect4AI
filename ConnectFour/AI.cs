@@ -149,7 +149,7 @@ namespace ConnectFour
 
         private static double Fitness(List<List<SquareSimple>> board, Turn playerColor, int winCount)
         {
-            Printer.PrintBoard(board);
+            //Printer.PrintBoard(board);
 
             double boardValue = 0;
             SquareState playerState;
@@ -300,7 +300,7 @@ namespace ConnectFour
             }
 
             //Check Diagonally going up
-            if (row > board.Count - winCount && col <= board[0].Count - winCount - winCount && !win)
+            if (row - winCount >= 0 && col <= board[0].Count - winCount - winCount && !win)
             {
                 int rowCount = 1;
                 bool blocked = false;

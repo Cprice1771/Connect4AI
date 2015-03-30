@@ -33,7 +33,7 @@ namespace ConnectFour
             GameSettings gs = new GameSettings();
             gs.ShowDialog();
 
-            Board board = new Board(gs.Rows, gs.Coloumns, gs.StartingTurn, gs.WinCount);
+            Board board = new Board(gs.Rows, gs.Coloumns, gs.StartingTurn, gs.WinCount, gs.AILookAhead);
             board.GameOver += OnGameOverHandler;
             MainGrid.Children.Clear();
 

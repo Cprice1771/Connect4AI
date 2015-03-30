@@ -23,6 +23,7 @@ namespace ConnectFour
         public int Coloumns { get; set; }
         public int Rows { get; set; }
         public int WinCount { get; set; }
+        public int AILookAhead { get; set; }
 
 
         public GameSettings()
@@ -36,6 +37,7 @@ namespace ConnectFour
             Coloumns = int.Parse(ColsTextBox.Text);
             Rows = int.Parse(RowsTextBox.Text);
             WinCount = int.Parse(WinCountTextBox.Text);
+            AILookAhead = int.Parse(AiPlayCount.Text);
 
             this.Close();
 
