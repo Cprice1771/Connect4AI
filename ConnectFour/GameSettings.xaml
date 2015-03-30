@@ -1,0 +1,20 @@
+﻿<Window x:Class="ConnectFour.GameSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GameSettings" Height="200" Width="232">
+    <Grid Margin="0,0,0,0">
+        <Label HorizontalAlignment="Left" Height="23" Margin="37,45,0,0" Content="Rows: " VerticalAlignment="Top" Width="41"/>
+        <Label HorizontalAlignment="Left" Height="23" Margin="109,47,0,0" Content="Cols: " VerticalAlignment="Top" Width="41"/>
+        <Label HorizontalAlignment="Left" Height="27" Margin="37,75,0,0" Content="Starting Color: " VerticalAlignment="Top" Width="91" Grid.ColumnSpan="2"/>
+        <TextBox Name="RowsTextBox" HorizontalAlignment="Left" Height="23" Margin="83,47,0,0" TextWrapping="Wrap" Text="6" VerticalAlignment="Top" Width="26"/>
+        <TextBox x:Name="ColsTextBox" HorizontalAlignment="Left" Height="23" Margin="150,47,0,0" TextWrapping="Wrap" Text="7" VerticalAlignment="Top" Width="27"/>
+        <ComboBox x:Name="ColorComboBox" HorizontalAlignment="Left" Margin="122,80,0,0" VerticalAlignment="Top" Width="68" SelectedIndex="0">
+            <ComboBoxItem Content="Red"/>
+            <ComboBoxItem Content="Black"/>
+        </ComboBox>
+        <Button x:Name="okButton" Content="OK" HorizontalAlignment="Left" Margin="169,138,0,0" VerticalAlignment="Top" Width="45" Click="okButton_Click"/>
+        <Label Content="Game Settings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label HorizontalAlignment="Left" Height="23" Margin="37,107,0,0" Content="Win Count: " VerticalAlignment="Top" Width="68" RenderTransformOrigin="-0.049,0.565"/>
+        <TextBox x:Name="WinCountTextBox" HorizontalAlignment="Left" Height="23" Margin="110,109,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="21"/>
+    </Grid>
+</Window>
