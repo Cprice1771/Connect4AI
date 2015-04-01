@@ -93,7 +93,7 @@ namespace ConnectFour
 
 
             if(turn == Turn.Black)
-                MakePlay(AI.BestMove(GetSimpleBoard(_board), _turn, aiPlaysLookAhead, _winCount));
+                MakePlay(AI.BestMove(GetSimpleBoard(_board), _turn, aiPlaysLookAhead, _winCount, 1000));
 
             grid.UpdateLayout();
         }
@@ -137,12 +137,8 @@ namespace ConnectFour
                     break;
             }
 
-            Stopwatch s = new Stopwatch();
-            s.Start();
-            MakePlay(AI.BestMove(GetSimpleBoard(_board), _turn, aiPlaysLookAhead, _winCount));
-            s.Stop();
+            MakePlay(AI.BestMove(GetSimpleBoard(_board), _turn, aiPlaysLookAhead, _winCount, 1000));
 
-            Console.WriteLine("Total AI time: " + ((double)s.ElapsedTicks / Stopwatch.Frequency) * 1000.0 + " ms");
 
             _state = CheckBoard();
 
@@ -296,7 +292,7 @@ namespace ConnectFour
             }
 
             //Check Diagonally going up
-            if (row - _winCount >= 0 && col <= _board[0].Count - _winCount && winner == false)
+            if (row - _winCount + 1 >= 0 && col <= _board[0].Count - _winCount && winner == false)
             {
                 winner = true;
                 for (int i = 1; i < _winCount; i++)

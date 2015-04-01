@@ -17,6 +17,6 @@
         <Label HorizontalAlignment="Left" Height="23" Margin="37,107,0,0" Content="Win Count: " VerticalAlignment="Top" Width="68" RenderTransformOrigin="-0.049,0.565"/>
         <TextBox x:Name="WinCountTextBox" HorizontalAlignment="Left" Height="23" Margin="110,109,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="21"/>
         <Label HorizontalAlignment="Left" Height="23" Margin="37,135,0,0" Content="AI Count: " VerticalAlignment="Top" Width="68" RenderTransformOrigin="-0.049,0.565"/>
-        <TextBox x:Name="AiPlayCount" HorizontalAlignment="Left" Height="23" Margin="110,137,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="21"/>
+        <TextBox x:Name="AiPlayCount" HorizontalAlignment="Left" Height="23" Margin="110,137,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="21"/>
     </Grid>
 </Window>

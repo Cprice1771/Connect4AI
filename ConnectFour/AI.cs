@@ -14,9 +14,15 @@ namespace ConnectFour
 
     public class AI
     {
-        public static int BestMove(List<List<SquareSimple>> board, Turn t, int count, int winCount)
+
+        static Stopwatch _stopwatch = new Stopwatch();
+        private static int _maxTime;
+
+        public static int BestMove(List<List<SquareSimple>> board, Turn t, int count, int winCount, int maxTime)
         {
+            _stopwatch.Restart();
             Turn turn = t;
+            _maxTime = maxTime;
 
             StateSpace rootSpace = new StateSpace
             {
@@ -40,12 +46,15 @@ namespace ConnectFour
 
             for(int i = 1; i < rootSpace.BoardList.Count; i++)
             {
-                if (max == null || max < rootSpace.BoardList[i].BoardFitness)
+                if ((rootSpace.BoardList[i].BoardFitness != null) && (max == null || max < rootSpace.BoardList[i].BoardFitness))
                 {
                     max = rootSpace.BoardList[i].BoardFitness;
                     index = i;
                 }
             }
+
+            _stopwatch.Stop();
+            Console.WriteLine("AI Time: " + _stopwatch.ElapsedMilliseconds + "ms");
 
             return index;
         }
@@ -53,7 +62,12 @@ namespace ConnectFour
         private static double? GetMax(StateSpace rootSpace, Turn playerColor, int winCount)
         {
             double? max = null;
-            ;
+
+            if (_stopwatch.ElapsedMilliseconds > _maxTime*.95)
+            {
+                return max;
+            }
+
             if (rootSpace.BoardList.Count > 0)
             {
                 for(int i = 0 ; i < rootSpace.BoardList.Count; i ++)
@@ -83,6 +97,12 @@ namespace ConnectFour
         private static double? GetMin(StateSpace rootSpace, Turn playerColor, int winCount)
         {
             double? min = null;
+
+            if (_stopwatch.ElapsedMilliseconds > _maxTime*.95)
+            {
+                return min;
+            }
+
             if (rootSpace.BoardList.Count > 0)
             {
                 for(int i = 0; i < rootSpace.BoardList.Count; i ++)
@@ -130,7 +150,7 @@ namespace ConnectFour
 
             Turn nextTurn = (t == Turn.Black) ? Turn.Red : Turn.Black;
 
-            if(count > 0)
+            if(count > 0 && _stopwatch.ElapsedMilliseconds < _maxTime * .8)
                 for (int i = 0; i < space.BoardList.Count; i++)
                     space.BoardList[i] = EnumerateSpace(space.BoardList[i], nextTurn, winCount, count - 1);
 
@@ -308,7 +328,7 @@ namespace ConnectFour
             }
 
             //Check Diagonally going up
-            if (row - winCount >= 0 && col <= board[0].Count - winCount && !win)
+            if (row - winCount + 1 >= 0 && col <= board[0].Count - winCount && !win)
             {
                 int rowCount = 1;
                 bool blocked = false;
